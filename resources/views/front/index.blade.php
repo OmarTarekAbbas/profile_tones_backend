@@ -4,11 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if(request()->get('op') == zain_kw)
     <title>Zain Profile Tones</title>
+    @else
+    <title>Du Profile Tones</title>
+    @endif
     <link rel="icon" href="images/Layer_3.png" type="image/x-icon"> <!-- Favicon-->
     <link rel="stylesheet" href="{{ asset('front/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+    @if(request()->get('op') == zain_kw)
+    <link rel="stylesheet" href="{{ asset('front/css/zain/style.css') }}">
+    @elseif(request()->get('op') == du_kw)
+    <link rel="stylesheet" href="{{ asset('front/css/du/style.css') }}">
+    @endif
 </head>
 <?php
 preg_match("/iPhone|iPad|iPod/", $_SERVER['HTTP_USER_AGENT'], $matches);
@@ -32,159 +40,52 @@ switch ($os) {
         $Att = '?body=';
         break;
 }
-
-$operatorCode = '9999';
-$audio_one_sms = $operatorCode . $Att . '1234';
-$audio_two_sms = $operatorCode . $Att . '1234';
-$audio_three_sms = $operatorCode . $Att . '1234';
-$audio_four_sms = $operatorCode . $Att . '1234';
-$audio_five_sms = $operatorCode . $Att . '1234';
-$audio_6_sms = $operatorCode . $Att . '1234';
-$audio_7_sms = $operatorCode . $Att . '1234';
-$audio_8_sms = $operatorCode . $Att . '1234';
-$audio_9_sms = $operatorCode . $Att . '1234';
-$audio_10_sms = $operatorCode . $Att . '1234';
-$audio_11_sms = $operatorCode . $Att . '1234';
-$audio_12_sms = $operatorCode . $Att . '1234';
-$audio_13_sms = $operatorCode . $Att . '1234';
-$audio_14_sms = $operatorCode . $Att . '1234';
-$audio_15_sms = $operatorCode . $Att . '1234';
-$audio_16_sms = $operatorCode . $Att . '1234';
-$audio_17_sms = $operatorCode . $Att . '1234';
-$audio_18_sms = $operatorCode . $Att . '1234';
-$audio_19_sms = $operatorCode . $Att . '1234';
-$audio_20_sms = $operatorCode . $Att . '1234';
-$audio_21_sms = $operatorCode . $Att . '1234';
-$audio_22_sms = $operatorCode . $Att . '1234';
-$audio_23_sms = $operatorCode . $Att . '1234';
-$audio_24_sms = $operatorCode . $Att . '1234';
-$audio_25_sms = $operatorCode . $Att . '1234';
 ?>
 
 <body>
     <main class="main_container">
         <div class="container">
-            <a href="index.php" class="logo">
-                <img class="d-block m-auto" src="{{ asset('front/images/Layer_3.png') }}" alt="zain">
+            <a href="" class="logo">
+            @if(request()->get('op') == zain_kw)
+                <img class="d-block m-auto" src="{{ asset('front/images/zain/Layer_3.png') }}" alt="zain">
+            @elseif(request()->get('op') == du_kw)
+            <img class="d-block m-auto" src="{{ asset('front/images/du/du_logo.png') }}" alt="zain">
+            @endif
             </a>
 
             <div class="head_title mt-2">
-                <!-- <h4 class="text-center text-capitalize">profile tone</h4> -->
-                <img class="d-block m-auto Profile_Tones" src="{{ asset('front/images/Profile_Tones.png') }}" alt="zain">
-
+                @if(request()->get('op') == zain_kw)
+                <img class="d-block m-auto Profile_Tones" src="{{ asset('front/images/zain/Profile_Tones.png') }}" alt="zain">
+                @elseif(request()->get('op') == du_kw)
+                <h4 class="text-center text-capitalize">Profile Tone</h4>
+                @endif
             </div>
 
             <div class="ring_tone text-center d-block font-weight-bold">سمع متصليك هذه الرسالة اضغط <i class="far fa-check-circle fa-lg"></i> للأشتراك</div>
         </div>
-
+        @foreach($get_content_from_rbt_for_indexs as $get_content_from_rbt_for_index)
         <div class="content w-100">
             <div class="row m-0 w-100">
                 <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
-                    <a href="sms:<?php echo $audio_one_sms ?>">
+                    <a href="sms:{{$get_content_from_rbt_for_index->rbt_sms_code .$Att.$get_content_from_rbt_for_index->rbt_code}}">
                         <div class="circle">
                             <i class="far fa-check-circle"></i>
                         </div>
                     </a>
 
-                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
+                    <a data-src="{{url('/uploads/content/path/'.$get_content_from_rbt_for_index->path)}}" class="play_pause">
                         <i class="far fa-play-circle remove-swirl-in-bck"></i>
                     </a>
                 </div>
 
                 <div class="col-md-8 col-lg-8 col-8 p-0">
                     <div class="img_left">
-                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
+                        <img class="w-100" src=" {{ url('uploads/image_rbt/'.$get_content_from_rbt_for_index->image_rbt) }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="content w-100">
-            <div class="row m-0 w-100">
-                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
-                    <a href="sms:<?php echo $audio_one_sms ?>">
-                        <div class="circle">
-                            <i class="far fa-check-circle"></i>
-                        </div>
-                    </a>
-
-                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
-                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
-                    </a>
-                </div>
-
-                <div class="col-md-8 col-lg-8 col-8 p-0">
-                    <div class="img_left">
-                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="content w-100">
-            <div class="row m-0 w-100">
-                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
-                    <a href="sms:<?php echo $audio_one_sms ?>">
-                        <div class="circle">
-                            <i class="far fa-check-circle"></i>
-                        </div>
-                    </a>
-
-                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
-                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
-                    </a>
-                </div>
-
-                <div class="col-md-8 col-lg-8 col-8 p-0">
-                    <div class="img_left">
-                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content w-100">
-            <div class="row m-0 w-100">
-                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
-                    <a href="sms:<?php echo $audio_one_sms ?>">
-                        <div class="circle">
-                            <i class="far fa-check-circle"></i>
-                        </div>
-                    </a>
-
-                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
-                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
-                    </a>
-                </div>
-
-                <div class="col-md-8 col-lg-8 col-8 p-0">
-                    <div class="img_left">
-                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content w-100">
-            <div class="row m-0 w-100">
-                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
-                    <a href="sms:<?php echo $audio_one_sms ?>">
-                        <div class="circle">
-                            <i class="far fa-check-circle"></i>
-                        </div>
-                    </a>
-
-                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
-                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
-                    </a>
-                </div>
-
-                <div class="col-md-8 col-lg-8 col-8 p-0">
-                    <div class="img_left">
-                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        @endforeach
 
     </main>
 
@@ -258,6 +159,19 @@ $audio_25_sms = $operatorCode . $Att . '1234';
             }
             $('.play_pause').children('i').removeClass('fa-pause-circle').addClass('fa-play-circle');
         })
+        op_id = {{ request()->filled('op') ? 1 : 0 }}
+        if (op_id) {
+            var operator_id = {{ request()->filled('op') ? request()->get('op') : '' }}
+            $('.link_href').each(function() {
+                var $this = $(this);
+                var _href = $this.attr("href");
+                if (_href.includes('?')) {
+                $this.attr("href", _href + '&op=' + operator_id);
+                } else {
+                $this.attr("href", _href + '?op=' + operator_id);
+                }
+            });
+        }
     </script>
 </body>
 

@@ -10,14 +10,14 @@
     <div class="col-sm-9 col-lg-10 controls">
         {!! Form::number('rbt_ussd_code',null,['placeholder'=>'Ussd Code','class'=>'form-control','min'=>0]) !!}
     </div>
-</div>
+</div> -->
 
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">Sms Code </label>
     <div class="col-sm-9 col-lg-10 controls">
         {!! Form::number('rbt_sms_code',null,['placeholder'=>'Sms Code','class'=>'form-control','min'=>0]) !!}
     </div>
-</div> -->
+</div>
 
 @if(isset($_REQUEST['country_id']))
 <div class="form-group">

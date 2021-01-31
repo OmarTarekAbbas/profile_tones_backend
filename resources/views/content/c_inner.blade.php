@@ -14,7 +14,7 @@
                 class="fa fa-plus"></i></a>
         @endif
         @if(count($value->rbt_operators) > 0)
-        <a class="btn btn-sm show-tooltip" title="Show Rbt Code" href="{{url("rbt/$value->id")}}"
+        <a class="btn btn-sm show-tooltip" title="Show Rbt Code" href="{{url("rbt/?content_id=$value->id")}}"
             data-original-title="show RBt_code"><i class="fa fa-step-forward"></i></a>
         @endif
     </div>

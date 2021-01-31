@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2021 at 04:07 PM
+-- Generation Time: Jan 31, 2021 at 03:05 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `profile_tones_backend`
+-- Database: `profile_two`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `image`, `created_at`, `updated_at`, `parent_id`, `provider_id`) VALUES
-(1, 'Tones', NULL, '2021-01-27 09:51:52', '2021-01-27 09:52:32', NULL, NULL);
+(1, 'Tones', '', '2021-01-31 06:29:16', '2021-01-31 06:50:32', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -68,11 +68,14 @@ CREATE TABLE `contents` (
 --
 
 INSERT INTO `contents` (`id`, `title`, `path`, `image_preview`, `content_type_id`, `category_id`, `patch_number`, `created_at`, `updated_at`) VALUES
-(1, 'اعتذر عن الرد انا اقود حاليا', '1611749547290.mp3', NULL, 4, 1, NULL, '2021-01-27 10:12:27', '2021-01-27 10:12:27'),
-(2, 'صاحب الموبيل يؤدي الصلاه حاليا', '1611749587432.mp3', NULL, 4, 1, NULL, '2021-01-27 10:13:07', '2021-01-27 10:13:07'),
-(3, 'اعتذر عن الرد انا في اجازة', '1611749622617.mp3', NULL, 4, 1, NULL, '2021-01-27 10:13:42', '2021-01-27 10:13:42'),
-(4, 'صاحب الموبايل نائما حاليا', '1611749655999.mp3', NULL, 4, 1, NULL, '2021-01-27 10:14:15', '2021-01-27 10:14:15'),
-(5, 'اعتذر عن الرد انا خارج الديره', '1611749699915.mp3', NULL, 4, 1, NULL, '2021-01-27 10:14:59', '2021-01-27 10:14:59');
+(1, 'اعتذر عن الرد انا اقود حاليا', '1611749547290.mp3', NULL, 4, 1, NULL, '2021-01-27 08:12:27', '2021-01-27 08:12:27'),
+(2, 'صاحب الموبيل يؤدي الصلاه حاليا', '1611749587432.mp3', NULL, 4, 1, NULL, '2021-01-27 08:13:07', '2021-01-27 08:13:07'),
+(3, 'اعتذر عن الرد انا في اجازة', '1611749622617.mp3', NULL, 4, 1, NULL, '2021-01-27 08:13:42', '2021-01-27 08:13:42'),
+(4, 'صاحب الموبايل نائما حاليا', '1611749655999.mp3', NULL, 4, 1, NULL, '2021-01-27 08:14:15', '2021-01-27 08:14:15'),
+(5, 'اعتذر عن الرد انا خارج الديره', '1611749699915.mp3', NULL, 4, 1, NULL, '2021-01-27 08:14:59', '2021-01-27 08:14:59'),
+(6, 'اعتذر عن الرد انا في العمل', '1612090044203.mp3', NULL, 4, 1, NULL, '2021-01-31 08:47:24', '2021-01-31 08:47:24'),
+(8, 'اعتذر عن الرد انا مشغول مع عائلتي', '1612101596929.mp3', NULL, 4, 1, NULL, '2021-01-31 08:48:13', '2021-01-31 11:59:56'),
+(9, 'اعتذر عن الرد انا مشغول حاليا', '1612101633616.mp3', NULL, 4, 1, NULL, '2021-01-31 08:48:38', '2021-01-31 12:00:33');
 
 -- --------------------------------------------------------
 
@@ -112,7 +115,8 @@ CREATE TABLE `countries` (
 --
 
 INSERT INTO `countries` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'kuwait', '2021-01-27 09:47:04', '2021-01-27 09:47:04');
+(1, 'Egypt', '2019-02-11 11:12:04', '2019-02-11 11:12:04'),
+(4, 'kuwait', '2021-01-31 06:28:48', '2021-01-31 06:28:48');
 
 -- --------------------------------------------------------
 
@@ -230,8 +234,8 @@ CREATE TABLE `operators` (
 --
 
 INSERT INTO `operators` (`id`, `name`, `rbt_sms_code`, `rbt_ussd_code`, `image`, `country_id`, `created_at`, `updated_at`) VALUES
-(1, 'Zain', NULL, NULL, NULL, 1, '2021-01-27 09:50:16', '2021-01-27 09:50:16'),
-(2, 'du', NULL, NULL, NULL, 1, '2021-01-27 09:50:26', '2021-01-27 09:50:26');
+(1, 'Zain', '9999', NULL, NULL, 4, '2021-01-31 06:28:33', '2021-01-31 08:25:18'),
+(2, 'Du', '8888', NULL, NULL, 4, '2021-01-31 06:29:03', '2021-01-31 08:25:24');
 
 -- --------------------------------------------------------
 
@@ -303,16 +307,31 @@ CREATE TABLE `rbt_codes` (
   `operator_id` int(10) UNSIGNED NOT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `provider_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `rbt_codes`
 --
 
-INSERT INTO `rbt_codes` (`id`, `rbt_code`, `content_id`, `operator_id`, `image`, `created_at`, `updated_at`) VALUES
-(30, 111, 1, 1, '1611759767836.png', '2021-01-27 13:02:47', '2021-01-27 13:02:47'),
-(31, 222, 1, 2, '1611759767992.png', '2021-01-27 13:02:47', '2021-01-27 13:02:47');
+INSERT INTO `rbt_codes` (`id`, `rbt_code`, `content_id`, `operator_id`, `image`, `created_at`, `updated_at`, `provider_id`) VALUES
+(1, 123, 1, 1, '161208988556.png', '2021-01-31 08:44:45', '2021-01-31 08:44:45', NULL),
+(2, 321, 2, 1, '1612089897808.png', '2021-01-31 08:44:57', '2021-01-31 08:44:57', NULL),
+(3, 456, 3, 1, '1612089917282.png', '2021-01-31 08:45:17', '2021-01-31 08:45:17', NULL),
+(4, 789, 4, 1, '161208993027.png', '2021-01-31 08:45:30', '2021-01-31 08:45:30', NULL),
+(5, 852, 5, 1, '1612089946891.png', '2021-01-31 08:45:46', '2021-01-31 08:45:46', NULL),
+(6, 658, 6, 1, '1612090170887.png', '2021-01-31 08:49:30', '2021-01-31 08:49:30', NULL),
+(7, 555, 8, 1, '1612090215736.png', '2021-01-31 08:50:15', '2021-01-31 08:50:15', NULL),
+(8, 9875, 9, 1, '1612090239814.png', '2021-01-31 08:50:39', '2021-01-31 08:50:39', NULL),
+(9, 123, 1, 2, '1612090439923.png', '2021-01-31 08:53:59', '2021-01-31 08:53:59', NULL),
+(10, 658, 2, 2, '1612090457666.png', '2021-01-31 08:54:17', '2021-01-31 08:54:17', NULL),
+(11, 694, 3, 2, '1612090473737.png', '2021-01-31 08:54:33', '2021-01-31 08:54:33', NULL),
+(12, 145, 4, 2, '1612090485880.png', '2021-01-31 08:54:45', '2021-01-31 08:54:45', NULL),
+(13, 1254, 5, 2, '1612090499448.png', '2021-01-31 08:54:59', '2021-01-31 08:54:59', NULL),
+(14, 7485, 6, 2, '1612090514587.png', '2021-01-31 08:55:14', '2021-01-31 08:55:14', NULL),
+(15, 2584, 8, 2, '1612090529302.png', '2021-01-31 08:55:29', '2021-01-31 08:55:29', NULL),
+(16, 8745, 9, 2, '1612090560295.png', '2021-01-31 08:56:00', '2021-01-31 08:56:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -645,6 +664,13 @@ CREATE TABLE `settings` (
   `order` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`, `type_id`, `order`) VALUES
+(1, 'enable_delete', '0', '2021-01-31 10:14:50', '2021-01-31 10:26:47', 7, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -721,15 +747,15 @@ CREATE TABLE `types` (
 --
 
 INSERT INTO `types` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'Advanced Editor', '2018-01-28 06:30:05', '2018-01-28 06:30:05'),
-(2, 'Normal Editor', '2018-01-28 06:30:14', '2018-01-28 06:30:14'),
-(3, 'Image', '2018-01-28 06:30:29', '2018-01-28 06:30:29'),
-(4, 'Video', '2018-01-28 06:30:39', '2018-01-28 06:30:39'),
-(5, 'Audio', '2018-01-28 06:30:47', '2018-01-28 06:30:47'),
-(6, 'File Manager Uploads Extensions', '2018-01-28 06:30:57', '2018-01-28 06:30:57'),
-(7, 'selector', '2019-02-11 11:18:52', '2019-02-11 11:18:52'),
-(8, 'input_color', '2019-12-31 11:18:52', '2019-12-31 11:18:52'),
-(9, 'page', '2019-12-31 11:19:52', '2019-12-31 11:19:52');
+(1, 'Advanced Editor', '2018-01-28 04:30:05', '2018-01-28 04:30:05'),
+(2, 'Normal Editor', '2018-01-28 04:30:14', '2018-01-28 04:30:14'),
+(3, 'Image', '2018-01-28 04:30:29', '2018-01-28 04:30:29'),
+(4, 'Video', '2018-01-28 04:30:39', '2018-01-28 04:30:39'),
+(5, 'Audio', '2018-01-28 04:30:47', '2018-01-28 04:30:47'),
+(6, 'File Manager Uploads Extensions', '2018-01-28 04:30:57', '2018-01-28 04:30:57'),
+(7, 'selector', '2019-02-11 09:18:52', '2019-02-11 09:18:52'),
+(8, 'input_color', '2019-12-31 09:18:52', '2019-12-31 09:18:52'),
+(9, 'page', '2019-12-31 09:19:52', '2019-12-31 09:19:52');
 
 -- --------------------------------------------------------
 
@@ -879,7 +905,8 @@ ALTER TABLE `providers`
 ALTER TABLE `rbt_codes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `rbt_codes_content_id_foreign` (`content_id`),
-  ADD KEY `rbt_codes_operator_id_foreign` (`operator_id`);
+  ADD KEY `rbt_codes_operator_id_foreign` (`operator_id`),
+  ADD KEY `rbt_codes_provider_id_foreign` (`provider_id`);
 
 --
 -- Indexes for table `relations`
@@ -999,7 +1026,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `content_types`
@@ -1011,13 +1038,13 @@ ALTER TABLE `content_types`
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `delete_all_flags`
 --
 ALTER TABLE `delete_all_flags`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `languages`
@@ -1059,7 +1086,7 @@ ALTER TABLE `providers`
 -- AUTO_INCREMENT for table `rbt_codes`
 --
 ALTER TABLE `rbt_codes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `relations`
@@ -1095,7 +1122,7 @@ ALTER TABLE `scaffoldinterfaces`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `static_bodies`
@@ -1125,7 +1152,7 @@ ALTER TABLE `translatables`
 -- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1170,6 +1197,14 @@ ALTER TABLE `posts`
   ADD CONSTRAINT `posts_content_id_foreign` FOREIGN KEY (`content_id`) REFERENCES `contents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `posts_operator_id_foreign` FOREIGN KEY (`operator_id`) REFERENCES `operators` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `rbt_codes`
+--
+ALTER TABLE `rbt_codes`
+  ADD CONSTRAINT `rbt_codes_content_id_foreign` FOREIGN KEY (`content_id`) REFERENCES `contents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rbt_codes_operator_id_foreign` FOREIGN KEY (`operator_id`) REFERENCES `operators` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rbt_codes_provider_id_foreign` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `relations`

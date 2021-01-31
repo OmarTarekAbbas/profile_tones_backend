@@ -30,10 +30,55 @@ class RbtController extends Controller
      */
     public function index()
     {
-        $contents = Content::where('content_type_id', 4)->get();
-        $rbtCodes = RbtCode::all();
-        return view('rbt.index', compact('contents','rbtCodes'));
+
+        return view('rbt.index');
     }
+
+
+    public function allData(Request $request)
+    {
+        // dd($request);
+        if(isset($request->content_id)){
+            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country')
+            ->join('operators', 'operators.id', '=', 'rbt_codes.operator_id')
+            ->join('countries', 'countries.id', '=', 'operators.country_id')
+            ->join('contents', 'contents.id', '=', 'rbt_codes.content_id')
+            ->where('rbt_codes.content_id', $request->content_id)
+            ->get();
+        }else{
+            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country')
+            ->join('operators', 'operators.id', '=', 'rbt_codes.operator_id')
+            ->join('countries', 'countries.id', '=', 'operators.country_id')
+            ->join('contents', 'contents.id', '=', 'rbt_codes.content_id')
+            ->get();
+        }
+
+
+            return \DataTables::of($contents)
+                ->addColumn('index', function(RbtCode $content) {
+                    return '<input class="select_all_template" type="checkbox" name="selected_rows[]" value="{{$content->id}}" class="roles" onclick="collect_selected(this)">';
+                })
+                ->addColumn('title', function(RbtCode $content) {
+                    return $content->title;
+                })
+                ->addColumn('rbt_code', function(RbtCode $content) {
+                    return $content->rbt_code;
+                })
+                ->addColumn('Operator_name', function(RbtCode $content) {
+                    return '<span class="btn">'.$content->title_country ."-". $content->name.'</span>';
+                })
+                ->addColumn('image', function(RbtCode $content) {
+                    return '<img src="'.url('uploads/image_rbt/'.$content->image_rbt).'" style="width:50%" alt="'.$content->title.'">';
+                })
+            ->addColumn('action', function(RbtCode $content) {
+            $value = $content;
+            return view('rbt.c_inner', compact('value'))->render();
+        })
+        ->escapeColumns([])
+        ->make(true);
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -166,7 +211,7 @@ class RbtController extends Controller
                     $request->image->move('uploads/image_rbt', $imageName);
                     $rbt->image = $imageName;
                 } catch (Illuminate\Filesystem\FileNotFoundException $e) {
-                    
+
                 }
             }
         }

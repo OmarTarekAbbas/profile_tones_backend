@@ -60,7 +60,7 @@ class ContentController extends Controller
             if(isset($content->category))
               return $content->category->title;
         })
-       
+
         ->addColumn('action', function(Content $content) {
           // return '<a class="btn btn-sm show-tooltip" href="'.url("content/$content->id/edit").'" title="Edit"><i class="fa fa-edit"></i></a>
           // <a class="btn btn-sm show-tooltip btn-danger" onclick="return ConfirmDelete();" href="'.url("content/$content->id/delete").'" title="Delete"><i class="fa fa-trash"></i></a>';

@@ -1,5 +1,5 @@
 /* general */
-$blue-color: #d12487;
+$blue-color: #00aeef;
 $white-color: #fff;
 $black-color: #000;
 
@@ -9,7 +9,7 @@ $black-color: #000;
 
 @font-face {
   font-family: Amine_mod;
-  src: url('../webfonts/Amine_mod-Bold.ttf');
+  src: url('../../webfonts/Amine_mod-Bold.ttf');
 }
 
 a {
@@ -21,8 +21,8 @@ body {
   direction: rtl;
   width: 100%;
   height: 100%;
-  background-image: url('../images/Group_11.png');
-  // background-image: url('../images/bg.jpg');
+  background-color: $white-color;
+  background-image: url('../../images/zain/Group_11.png');
   // background-size: 100% 100%;
   // background-position: center;
   // background-repeat: no-repeat;
@@ -34,9 +34,8 @@ body {
     width: 25%;
     margin: 0 auto;
     display: block;
-    background-image: url('../images/Group_11.png');
-
-  }
+    background-image: url('../../images/zain/Group_11.png');
+}
 
   #return-to-top {
     left: 61% !important;
@@ -48,7 +47,7 @@ main {
 
   .logo {
     img {
-      width: 35%;
+      width: 14%;
     }
   }
 
@@ -284,8 +283,4 @@ main {
     transform: rotate(0) scale(1);
     opacity: 1;
   }
-}
-.Profile_Tones{
-  width: 53%;
-   padding: 10px 0;
 }

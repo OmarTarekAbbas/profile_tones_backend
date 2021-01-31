@@ -13,3 +13,6 @@
 
 get_static_routes() ;
 get_dynamic_routes();
+
+define('zain_kw',zain_kuwait());
+define('du_kw',du_kuwait());

@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\DeleteAll;
 use App\RouteModel;
+use App\Country;
+use App\Operator;
 
 function delete_multiselect(Request $request) // select many contract from index table and delete them
 {
@@ -82,6 +84,7 @@ function get_static_routes()
         Route::get('admin/migrate_manager', 'DashboardController@migrate_manager');
         Route::post('admin/migrate_tables', 'DashboardController@migrate_tables');
         Route::get('content/allData', 'ContentController@allData');
+        Route::get('rbt/allData', 'RbtController@allData');
         Route::get('post/allData', 'PostController@allData');
         // Route::resource('provider', 'ProviderController');
     });
@@ -210,4 +213,41 @@ function get_action_icons($route,$method)
     return $routeRole || $userRole == 1 ? 1 : 0 ;
   }
   return false;
+}
+
+function zain_kuwait(){
+    $country = Country::where('title', 'Kuwait')->first();
+    if(!empty($country)){
+        $op = Operator::where('country_id', $country->id)->where('name', 'Zain')->first();
+        if(!empty($op)){
+            return $op->id;
+        }
+    }
+    return 1;
+}
+
+function du_kuwait(){
+    $country = Country::where('title', 'Kuwait')->first();
+    if(!empty($country)){
+        $op = Operator::where('country_id', $country->id)->where('name', 'Du')->first();
+        if(!empty($op)){
+            return $op->id;
+        }
+    }
+    return 2;
+}
+
+if (! function_exists('setting')) {
+    /**
+     * Method setting
+     *
+     * @param string $key
+     *
+     * @return string
+     */
+    function setting($key)
+    {
+        $data = \DB::table('settings')->where('key', 'like', '%' . $key . '%')->first();
+        return $data ? $data->value : '';
+    }
 }

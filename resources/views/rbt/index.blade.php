@@ -32,7 +32,7 @@ Rbt Code
                         </div>
                         <br><br>
                         <div class="table-responsive">
-                            <table id="tableexample" class="table table-striped dt-responsive" cellspacing="0"
+                            <table id="tablerbt" class="table table-striped dt-responsive" cellspacing="0"
                                 width="100%">
 
                                 <thead>
@@ -46,40 +46,7 @@ Rbt Code
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach($contents as $key=>$content)
-                                    @foreach($content->rbt_operators as $value)
-                                    <tr>
-                                        <td><input class="select_all_template" type="checkbox" name="selected_rows[]"
-                                                value="{{$value->id}}" class="roles" onclick="collect_selected(this)">
-                                        </td>
-                                        <td>
-                                            {{$content->title}}
-                                        </td>
-                                        <td>{{$value->pivot->rbt_code}}</td>
-                                        <td>
-                                            <span class="btn">{{$value->country->title}}-{{$value->name}}</span>
-                                            <br>
-                                        </td>
-                                        <td>
-                                        <img src="{{ url('uploads/image_rbt/'.$value->pivot->image) }}" style="width: 25%;" alt="{{$content->title}}">
-                                        </td>
-                                        </td>
-                                        <td class="visible-md visible-lg">
-                                            <div class="btn-group">
-                                                <a class="btn btn-sm show-tooltip"
-                                                    href="{{url("rbt/".$value->pivot->id."/edit")}}" title="Edit"><i
-                                                        class="fa fa-edit"></i></a>
-                                                <a class="btn btn-sm show-tooltip btn-danger"
-                                                    onclick="return ConfirmDelete();"
-                                                    href="{{url("rbt/".$value->pivot->id."/delete")}}" title="Delete"><i
-                                                        class="fa fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    @endforeach
-                                </tbody>
+
                             </table>
                         </div>
                     </div>
@@ -100,5 +67,28 @@ $('#tableexample').dataTable({
 
 $('#rbts').addClass('active');
 $('#rbt-index').addClass('active');
+
+    window.onload = function() {
+        $('#tablerbt').DataTable({
+            "processing": true,
+            "serverSide": true,
+            // "search": {"regex": true},
+            "ajax": {
+            type: "GET",
+            "url": "{!! url('rbt/allData?content_id=') !!}{{request()->filled('content_id')? request()->get('content_id') : ''}}",
+
+            "data":"{{csrf_token()}}"
+            },
+            columns: [
+            {data: 'index', searchable: false, orderable: false},
+            {data: 'title'},
+            {data: 'rbt_code'},
+            {data: 'Operator_name'},
+            {data: 'image'},
+            {data: 'action', searchable: false}
+            ]
+            , "pageLength": 5
+        });
+    };
 </script>
 @stop

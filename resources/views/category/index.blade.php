@@ -59,7 +59,9 @@
                                                 <a class="btn btn-sm show-tooltip" title="Show Content" href="{{url("category/$value->id")}}" data-original-title="show Content"><i class="fa fa-step-forward"></i></a>
                                                 @endif
                                                 <a class="btn btn-sm show-tooltip" href="{{url("category/$value->id/edit")}}" title="Edit"><i class="fa fa-edit"></i></a>
+                                                @if (setting('enable_delete'))
                                                 <a class="btn btn-sm show-tooltip btn-danger" onclick="return ConfirmDelete();" href="{{url("category/$value->id/delete")}}" title="Delete"><i class="fa fa-trash"></i></a>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
