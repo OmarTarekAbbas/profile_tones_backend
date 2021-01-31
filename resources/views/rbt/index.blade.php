@@ -87,7 +87,7 @@ $('#rbt-index').addClass('active');
             {data: 'image'},
             {data: 'action', searchable: false}
             ]
-            , "pageLength": 5
+            , "pageLength": 100
         });
     };
 </script>

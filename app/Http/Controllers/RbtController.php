@@ -68,7 +68,7 @@ class RbtController extends Controller
                     return '<span class="btn">'.$content->title_country ."-". $content->name.'</span>';
                 })
                 ->addColumn('image', function(RbtCode $content) {
-                    return '<img src="'.url('uploads/image_rbt/'.$content->image_rbt).'" style="width:50%" alt="'.$content->title.'">';
+                    return '<img src="'.url('uploads/image_rbt/'.$content->image_rbt).'" style="width:25%" alt="'.$content->title.'">';
                 })
             ->addColumn('action', function(RbtCode $content) {
             $value = $content;
@@ -207,7 +207,7 @@ class RbtController extends Controller
         if ($request->hasFile('image')) {
             if ($request->file('image')->isValid()) {
                 try {
-                    $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+                    $imageName = time() . rand(0, 999) .'.' . $request->image->getClientOriginalExtension();
                     $request->image->move('uploads/image_rbt', $imageName);
                     $rbt->image = $imageName;
                 } catch (Illuminate\Filesystem\FileNotFoundException $e) {
