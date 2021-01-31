@@ -55,7 +55,7 @@
                 </div>\
             </div>\
             <div class="col-sm-4">\
-                <label class="control-label">rbt_code <span class="text-danger">*</span></label>\
+                <label class="control-label">Image <span class="text-danger">*</span></label>\
                 <div class="controls">\
                 {!! Form::file("image[]",["accept"=>"image/*" ,"class"=>"default"]) !!}\
                 </div>\

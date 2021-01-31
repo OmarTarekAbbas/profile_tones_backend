@@ -42,6 +42,7 @@ Rbt Code
                                         <th>content</th>
                                         <th>rbt_code</th>
                                         <th>operator</th>
+                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -59,6 +60,9 @@ Rbt Code
                                         <td>
                                             <span class="btn">{{$value->country->title}}-{{$value->name}}</span>
                                             <br>
+                                        </td>
+                                        <td>
+                                        <img src="{{ url('uploads/image_rbt/'.$value->pivot->image) }}" style="width: 25%;" alt="{{$content->title}}">
                                         </td>
                                         </td>
                                         <td class="visible-md visible-lg">

@@ -148,7 +148,7 @@ class RbtController extends Controller
         $validator = Validator::make($request->all(), [
             'rbt_code' => 'required',
             'content_id' => 'required',
-            'operator_id' => 'required'
+            'operator_id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -156,8 +156,21 @@ class RbtController extends Controller
         }
         $rbt = RbtCode::findOrFail($id);
         $content = Content::findOrFail($request->content_id);
-        $rbt->update($request->all());
-
+        $rbt->rbt_code = $request->rbt_code;
+        $rbt->content_id = $content->id;
+        $rbt->operator_id = $request->operator_id;
+        if ($request->hasFile('image')) {
+            if ($request->file('image')->isValid()) {
+                try {
+                    $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+                    $request->image->move('uploads/image_rbt', $imageName);
+                    $rbt->image = $imageName;
+                } catch (Illuminate\Filesystem\FileNotFoundException $e) {
+                    
+                }
+            }
+        }
+        $rbt->save();
         \Session::flash('success', 'RbtCode Update Successfully');
         return redirect('rbt/' . $request->content_id);
     }

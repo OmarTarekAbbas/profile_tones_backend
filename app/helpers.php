@@ -56,32 +56,6 @@ function get_static_routes()
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
     //front
     Route::get('/', 'FrontController@index');
-    Route::get('/index', 'FrontController@index_mobile');
-    Route::get('home', 'FrontController@home');
-    Route::get('list_services/{id}', 'FrontController@services');
-    Route::get('list_contents/{id}', 'FrontController@contents');
-    Route::get('view_content/{id}', 'FrontController@view_content');
-    Route::get('sebha', 'FrontController@sebha');
-    Route::get('zakah', 'FrontController@zakah');
-    Route::get('merath', 'FrontController@merath');
-    Route::get('merath_calc', 'FrontController@merath_calc');
-    Route::get('salah_time', 'FrontController@salah_time');
-    Route::get('mosque', 'FrontController@mosque');
-    Route::get('view_content', 'FrontController@op_id');
-    Route::get('view_audio', 'FrontController@op_id_au');
-    // Route::get('view_content?op_id={id}', function(
-
-    // );
-    // Route::get('azan', 'FrontController@azan');
-    // Route::get('providers/list_azan', 'FrontController@list_azan');
-    // Route::get('view_rbt/{id}', 'FrontController@view_rbt');
-    // Route::get('rbts', 'FrontController@rbts');
-
-
-
-    // Route::get('/', 'DashboardController@index');
-    // Route::get('/home', 'DashboardController@index');
-
     Route::group(['middleware' => 'auth'], function () {
         Route::resource('static_translation', '\App\Http\Controllers\StaticTranslationController');
     });

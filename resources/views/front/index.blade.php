@@ -1,110 +1,263 @@
 <!DOCTYPE html>
-<html lang="en" style="height:100%;">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <!--IE Compatibility Meta-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--Mobile Meta-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{!! DB::table('settings')->where('key','like','%title%')->first()->value !!}</title>
-    <link rel="stylesheet" type="text/css" href="{{url('assets/front/')}}/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="{{url('assets/front/')}}/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="{{url('assets/front/')}}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{url('assets/front/')}}/css/main-style.css">
-    <!--[if lt IE 9]>
-      <script src="{{url('assets/front/')}}/js/html5shiv.min.js"></script>
-      <script src="{{url('assets/front/')}}/js/respond.min.js"></script>
-      <![endif]-->
-
-    <script type="text/javascript">
-        if (screen.width <= 600) {
-            document.location = "{{url('index')}}";
-        }
-
-    </script>
-
-    <style>
-        .the-frame {
-            padding: 0;
-            margin: 0;
-            border-radius: 30px;
-            border-top: 15px solid #a0a19f;
-            border-bottom: 15px solid #a0a19f;
-            border-right: 15px solid #a0a19f;
-            border-left: 15px solid #a0a19f;
-            box-shadow: 0 6px 10px 0 rgba(245, 205, 205, 0.14), 0 1px 18px 0 rgba(247, 172, 172, 0.12), 0 3px 5px -1px rgba(158, 85, 85, 0.3);
-            width: 370px;
-            height: 600px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .main .filter_services {
-            height: 200px !important;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .the-frame {
-                display: none;
-            }
-
-            .enter {
-                display: block;
-            }
-
-            .enter h4 {
-                padding: 20px;
-                text-align: center;
-                color: #f3e5b8;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                margin-right: -50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .enter a {
-                font-weight: bold;
-                font-size: 18px;
-                color: #333;
-                padding: 5px 10px;
-                background-color: #f3e5b8;
-                border-radius: 5px;
-                text-decoration: none;
-                position: absolute;
-                top: 60%;
-                left: 45%;
-                margin-right: -50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        @media only screen and (min-width: 600px) {
-            .enter {
-                display: none;
-            }
-        }
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zain Profile Tones</title>
+    <link rel="icon" href="images/Layer_3.png" type="image/x-icon"> <!-- Favicon-->
+    <link rel="stylesheet" href="{{ asset('front/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
 </head>
+<?php
+preg_match("/iPhone|iPad|iPod/", $_SERVER['HTTP_USER_AGENT'], $matches);
+$os = current($matches);
+
+switch ($os) {
+    case 'iPhone':
+        if (preg_match('/OS 8/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/OS 9/', $_SERVER['HTTP_USER_AGENT'])) {
+            $Att = '&body=';
+        } else {
+            $Att = '&body=';
+        }
+        break;
+    case 'iPad':
+        $Att = '&body=';
+        break;
+    case 'iPod':
+        $Att = '&body=';
+        break;
+    default:
+        $Att = '?body=';
+        break;
+}
+
+$operatorCode = '9999';
+$audio_one_sms = $operatorCode . $Att . '1234';
+$audio_two_sms = $operatorCode . $Att . '1234';
+$audio_three_sms = $operatorCode . $Att . '1234';
+$audio_four_sms = $operatorCode . $Att . '1234';
+$audio_five_sms = $operatorCode . $Att . '1234';
+$audio_6_sms = $operatorCode . $Att . '1234';
+$audio_7_sms = $operatorCode . $Att . '1234';
+$audio_8_sms = $operatorCode . $Att . '1234';
+$audio_9_sms = $operatorCode . $Att . '1234';
+$audio_10_sms = $operatorCode . $Att . '1234';
+$audio_11_sms = $operatorCode . $Att . '1234';
+$audio_12_sms = $operatorCode . $Att . '1234';
+$audio_13_sms = $operatorCode . $Att . '1234';
+$audio_14_sms = $operatorCode . $Att . '1234';
+$audio_15_sms = $operatorCode . $Att . '1234';
+$audio_16_sms = $operatorCode . $Att . '1234';
+$audio_17_sms = $operatorCode . $Att . '1234';
+$audio_18_sms = $operatorCode . $Att . '1234';
+$audio_19_sms = $operatorCode . $Att . '1234';
+$audio_20_sms = $operatorCode . $Att . '1234';
+$audio_21_sms = $operatorCode . $Att . '1234';
+$audio_22_sms = $operatorCode . $Att . '1234';
+$audio_23_sms = $operatorCode . $Att . '1234';
+$audio_24_sms = $operatorCode . $Att . '1234';
+$audio_25_sms = $operatorCode . $Att . '1234';
+?>
 
 <body>
-    <div class="the-frame">
-        <iframe class="full-screen-preview__frame" src="{{url('index')}}" name="preview-frame" frameborder="0" noresize="noresize" data-view="fullScreenPreview" style="height: 570px; width: 340px; border-radius: 10px;">
-        </iframe>
-    </div>
-    <div class="enter">
-        <h4>انت الان على الهاتف للدخول اضغط هنا</h4>
-        <a href="{{url('index')}}" class="wow pulse" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="1.5s">دخول</a>
-    </div>
+    <main class="main_container">
+        <div class="container">
+            <a href="index.php" class="logo">
+                <img class="d-block m-auto" src="{{ asset('front/images/Layer_3.png') }}" alt="zain">
+            </a>
 
-    <script src="{{url('assets/front/')}}/js/wow.min.js"></script>
+            <div class="head_title mt-2">
+                <!-- <h4 class="text-center text-capitalize">profile tone</h4> -->
+                <img class="d-block m-auto Profile_Tones" src="{{ asset('front/images/Profile_Tones.png') }}" alt="zain">
+
+            </div>
+
+            <div class="ring_tone text-center d-block font-weight-bold">سمع متصليك هذه الرسالة اضغط <i class="far fa-check-circle fa-lg"></i> للأشتراك</div>
+        </div>
+
+        <div class="content w-100">
+            <div class="row m-0 w-100">
+                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
+                    <a href="sms:<?php echo $audio_one_sms ?>">
+                        <div class="circle">
+                            <i class="far fa-check-circle"></i>
+                        </div>
+                    </a>
+
+                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
+                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
+                    </a>
+                </div>
+
+                <div class="col-md-8 col-lg-8 col-8 p-0">
+                    <div class="img_left">
+                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content w-100">
+            <div class="row m-0 w-100">
+                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
+                    <a href="sms:<?php echo $audio_one_sms ?>">
+                        <div class="circle">
+                            <i class="far fa-check-circle"></i>
+                        </div>
+                    </a>
+
+                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
+                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
+                    </a>
+                </div>
+
+                <div class="col-md-8 col-lg-8 col-8 p-0">
+                    <div class="img_left">
+                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content w-100">
+            <div class="row m-0 w-100">
+                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
+                    <a href="sms:<?php echo $audio_one_sms ?>">
+                        <div class="circle">
+                            <i class="far fa-check-circle"></i>
+                        </div>
+                    </a>
+
+                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
+                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
+                    </a>
+                </div>
+
+                <div class="col-md-8 col-lg-8 col-8 p-0">
+                    <div class="img_left">
+                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content w-100">
+            <div class="row m-0 w-100">
+                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
+                    <a href="sms:<?php echo $audio_one_sms ?>">
+                        <div class="circle">
+                            <i class="far fa-check-circle"></i>
+                        </div>
+                    </a>
+
+                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
+                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
+                    </a>
+                </div>
+
+                <div class="col-md-8 col-lg-8 col-8 p-0">
+                    <div class="img_left">
+                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content w-100">
+            <div class="row m-0 w-100">
+                <div class="col-md-4 col-lg-4 col-4 pl-2 pr-0">
+                    <a href="sms:<?php echo $audio_one_sms ?>">
+                        <div class="circle">
+                            <i class="far fa-check-circle"></i>
+                        </div>
+                    </a>
+
+                    <a data-src="{{ asset('front/track/01.mp3') }}" class="play_pause">
+                        <i class="far fa-play-circle remove-swirl-in-bck"></i>
+                    </a>
+                </div>
+
+                <div class="col-md-8 col-lg-8 col-8 p-0">
+                    <div class="img_left">
+                        <img class="w-100" src=" {{ asset('front/images/01.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <a class="text-center" href="javascript:" id="return-to-top">
+        <i class="rounded-circle fas fa-chevron-up"></i>
+    </a>
+
+    <script src="{{ asset('front/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('front/js/popper.min.js') }}"></script>
+
     <script>
-        new WOW().init();
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) { // If page is scrolled more than 50px
+                $('#return-to-top').fadeIn(800); // Fade in the arrow
+            } else {
+                $('#return-to-top').fadeOut(800); // Else fade out the arrow
+            }
+        });
+        $('#return-to-top').click(function() { // When arrow is clicked
+            $('body,html').animate({
+                scrollTop: 0, // Scroll to top of body
+            }, 2000);
+        });
+    </script>
 
+    <script>
+        $(".fa-play-circle").click(function() {
+            $(this).toggleClass("swirl-in-fwd");
+        });
+
+        $(".remove-swirl-in-bck").click(function() {
+            if ($(this).hasClass("fa-pause-circle")) {
+                $(this).addClass("swirl-in-bck");
+            } else {
+                $(this).removeClass("swirl-in-bck");
+            }
+        });
+    </script>
+
+    <script>
+        let audio = new Audio();
+
+        $('.play_pause').click(function(e) {
+            e.preventDefault()
+
+            if (!audio.paused) {
+                audio.pause();
+            }
+
+            audio.src = $(this).data('src')
+
+            if ($(this).children('i').hasClass('fa-play-circle')) {
+                $(this).children('i').removeClass('fa-play-circle').addClass('fa-pause-circle')
+
+                $('.far').not($(this).children('i')).each(function() {
+                    if ($(this).hasClass('fa-pause-circle')) {
+                        $(this).removeClass('fa-pause-circle').addClass('fa-play-circle')
+                    }
+                })
+                audio.play();
+            } else {
+                $(this).children('i').removeClass('fa-pause-circle').addClass('fa-play-circle')
+            }
+        })
+
+
+        $('.circle').parent('a').click(function() {
+            if (!audio.paused) {
+                audio.pause();
+            }
+            $('.play_pause').children('i').removeClass('fa-pause-circle').addClass('fa-play-circle');
+        })
     </script>
 </body>
 

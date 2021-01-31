@@ -69,7 +69,7 @@ class Content extends Model
   public function rbt_operators()
   {
     return $this->belongsToMany('App\Operator','rbt_codes','content_id','operator_id')
-    ->withPivot('id','rbt_code')->withTimestamps();
+    ->withPivot('id','rbt_code','image')->withTimestamps();
   }
 
   public function operators()

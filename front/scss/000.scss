@@ -1,0 +1,186 @@
+/* general */
+$blue-color: #00aeef;
+$white-color: #fff;
+$black-color: #000;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@font-face {
+  font-family: Amine_mod;
+  src: url('../webfonts/Amine_mod-Bold.ttf');
+}
+
+a {
+  text-decoration: none !important;
+}
+
+body {
+  font-family: Amine_mod;
+  direction: rtl;
+  width: 100%;
+  height: 100%;
+  background-color: $white-color;
+  // background-image: url('../images/bg.jpg');
+  // background-size: 100% 100%;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+}
+
+@media (min-width: 1025px) {
+  main {
+    width: 25%;
+    margin: 0 auto;
+    display: block;
+    // background-image: url('../images/bg.jpg');
+  }
+}
+
+main {
+  padding-top: 1rem;
+
+  .logo {
+    img {
+      width: 14%;
+    }
+  }
+
+  .head_title {
+    h4 {
+      color: $blue-color;
+    }
+  }
+
+  .content {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-right: 0.75rem;
+
+    .circle {
+      font-size: 0.8rem;
+      background-color: $white-color;
+      color: $blue-color;
+      width: 80%;
+      height: 90%;
+      padding: 0.5rem 0.5rem;
+      margin-top: 0.7rem;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid $blue-color;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+
+      span {
+        text-align: center;
+      }
+    }
+
+    .play_pause {
+      margin-left: 60%;
+
+      i {
+        color: $blue-color;
+        line-height: 6rem;
+        font-size: 1.75rem
+      }
+    }
+
+    .img_left {
+      line-height: 6rem;
+    }
+  }
+
+  .foot_title {
+    h6 {
+      color: $blue-color;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.8px) {
+  main {
+    .logo {
+      img {
+        width: 10%;
+      }
+    }
+
+    .content {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-right: 1.5rem;
+
+      .circle {
+        font-size: 1.15rem;
+        width: 75%;
+        height: 80%;
+        padding: 0 1rem;
+      }
+
+      .play_pause {
+        i {
+          line-height: 10rem;
+          font-size: 2.5rem;
+          margin-right: -25%;
+        }
+      }
+    }
+
+    .foot_title {
+      h6 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1024.9px) {
+  main {
+    .logo {
+      img {
+        width: 10%;
+      }
+    }
+
+    .head_title {
+      h4 {
+        font-size: 2.25rem;
+      }
+    }
+
+    .content {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-right: 1.5rem;
+
+      .circle {
+        font-size: 1.5rem;
+        width: 75%;
+        height: 80%;
+        padding: 0 1rem;
+      }
+
+      .play_pause {
+        i {
+          line-height: 13rem;
+          font-size: 3.5rem;
+          margin-right: -25%;
+        }
+      }
+    }
+
+    .foot_title {
+      h6 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

@@ -137,7 +137,7 @@ function ConfirmDelete()
             <a class="navbar-brand" href="{{url('/')}}">
                 <small>
                     <i class="fa fa-user-secret"></i>
-                    @lang('messages.dashboard')
+                    Tones
                 </small>
             </a>
 
