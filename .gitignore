@@ -5,7 +5,7 @@
 /vendor
 /uploads
 /storage/framework/views/.*.php
-/storage/framework/sessions/
+/storage/framework/sessions/.*
 .env
 .history
 .env.backup
