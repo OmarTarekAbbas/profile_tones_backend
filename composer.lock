@@ -5072,7 +5072,6 @@
                 "env",
                 "environment"
             ],
-<<<<<<< HEAD
             "time": "2019-09-10T21:37:39+00:00"
         },
         {
@@ -5145,23 +5144,6 @@
                 "laravel"
             ],
             "time": "2019-12-17T03:30:56+00:00"
-=======
-            "support": {
-                "issues": "https://github.com/vlucas/phpdotenv/issues",
-                "source": "https://github.com/vlucas/phpdotenv/tree/v3.6.8"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-01-20T14:39:46+00:00"
->>>>>>> origin/yousef
         }
     ],
     "packages-dev": [
