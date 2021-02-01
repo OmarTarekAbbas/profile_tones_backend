@@ -4,7 +4,8 @@
 /storage/*.key
 /vendor
 /uploads
-/storage
+/storage/framework/views/*.php
+/storage/framework/sessions/*
 .env
 .history
 .env.backup
