@@ -23,19 +23,19 @@ class DatabaseSeeder extends Seeder
       $this->call(RoutesTableSeeder::class);
       $this->call(RoleRouteTableSeeder::class);
       $this->call(TypesTableSeeder::class);
-      $this->call(SettingsTableSeeder::class);
-      $this->call(DeleteAllFlagsTableSeeder::class);
-      $this->call(LanguagesTableSeeder::class);
-      $this->call(StaticBodiesTableSeeder::class);
-      $this->call(StaticTranslationsTableSeeder::class);
-      $this->call(TansBodiesTableSeeder::class);
-      $this->call(TranslatablesTableSeeder::class);
-      $this->call(CountriesTableSeeder::class);
-      $this->call(OperatorsTableSeeder::class);
-      $this->call(CategoriesTableSeeder::class);
-      $this->call(ContentTypesTableSeeder::class);
-      $this->call(ContentsTableSeeder::class);
-      $this->call(PostsTableSeeder::class);
-      $this->call(RbtCodesTableSeeder::class);
+    //   $this->call(SettingsTableSeeder::class);
+    //   $this->call(DeleteAllFlagsTableSeeder::class);
+    //   $this->call(LanguagesTableSeeder::class);
+    //   $this->call(StaticBodiesTableSeeder::class);
+    //   $this->call(StaticTranslationsTableSeeder::class);
+    //   $this->call(TansBodiesTableSeeder::class);
+    //   $this->call(TranslatablesTableSeeder::class);
+    //   $this->call(CountriesTableSeeder::class);
+    //   $this->call(OperatorsTableSeeder::class);
+    //   $this->call(CategoriesTableSeeder::class);
+    //   $this->call(ContentTypesTableSeeder::class);
+    //   $this->call(ContentsTableSeeder::class);
+    //   $this->call(PostsTableSeeder::class);
+    //   $this->call(RbtCodesTableSeeder::class);
     }
 }
