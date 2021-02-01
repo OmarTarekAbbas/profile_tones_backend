@@ -84,7 +84,7 @@
             {data: 'content_type'},
             {data: 'action', searchable: false}
             ]
-            , "pageLength": 100
+            , "pageLength": 25
         });
     };
     $(document).ajaxComplete(function() {
