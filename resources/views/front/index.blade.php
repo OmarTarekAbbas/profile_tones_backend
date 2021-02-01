@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @if(request()->get('op') == zain_kw)
+    @if(request()->get('op') == $zain_kuwait)
     <title>Zain Profile Tones</title>
     @else
     <title>Du Profile Tones</title>
@@ -12,9 +12,9 @@
     <link rel="icon" href="images/Layer_3.png" type="image/x-icon"> <!-- Favicon-->
     <link rel="stylesheet" href="{{ asset('front/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
-    @if(request()->get('op') == zain_kw)
+    @if(request()->get('op') == $zain_kuwait)
     <link rel="stylesheet" href="{{ asset('front/css/zain/style.css') }}">
-    @elseif(request()->get('op') == du_kw)
+    @elseif(request()->get('op') == $du_kuwait)
     <link rel="stylesheet" href="{{ asset('front/css/du/style.css') }}">
     @endif
 </head>
@@ -46,17 +46,17 @@ switch ($os) {
     <main class="main_container">
         <div class="container">
             <a href="" class="logo">
-            @if(request()->get('op') == zain_kw)
+            @if(request()->get('op') == $zain_kuwait)
                 <img class="d-block m-auto" src="{{ asset('front/images/zain/Layer_3.png') }}" alt="zain">
-            @elseif(request()->get('op') == du_kw)
+            @elseif(request()->get('op') == $du_kuwait)
             <img class="d-block m-auto" src="{{ asset('front/images/du/du_logo.png') }}" alt="zain">
             @endif
             </a>
 
             <div class="head_title mt-2">
-                @if(request()->get('op') == zain_kw)
+                @if(request()->get('op') == $zain_kuwait)
                 <img class="d-block m-auto Profile_Tones" src="{{ asset('front/images/zain/Profile_Tones.png') }}" alt="zain">
-                @elseif(request()->get('op') == du_kw)
+                @elseif(request()->get('op') == $du_kuwait)
                 <h4 class="text-center text-capitalize">Profile Tone</h4>
                 @endif
             </div>

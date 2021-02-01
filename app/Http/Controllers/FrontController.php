@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\RbtCode;
-use Illuminate\Support\Facades\File;
-use Monolog\Handler\StreamHandler;
-use Illuminate\Support\Facades\Session;
+use App\Helpers\Helper;
+
 
 
 class FrontController extends Controller
@@ -21,6 +20,8 @@ class FrontController extends Controller
         ->join('operators', 'operators.id', '=', 'rbt_codes.operator_id')
         ->where('operators.id', request()->get('op'))
         ->get();
-        return view('front.index',compact("get_content_from_rbt_for_indexs"));
+        $zain_kuwait = Helper::zain_kuwait();
+        $du_kuwait = Helper::du_kuwait();
+        return view('front.index',compact("get_content_from_rbt_for_indexs",'zain_kuwait','du_kuwait'));
     }
 }
