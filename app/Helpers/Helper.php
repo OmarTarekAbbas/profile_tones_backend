@@ -26,8 +26,5 @@ class Helper {
         }
         return 2;
     }
-
-
-
 }
 ?>

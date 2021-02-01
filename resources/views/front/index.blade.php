@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @if(request()->get('op') == $zain_kuwait)
     <title>Zain Profile Tones</title>
+    <link rel="icon" href="{{ asset('front/images/zain/Layer_3.png ') }}" type="image/x-icon"> <!-- Favicon-->
     @else
     <title>Du Profile Tones</title>
+    <link rel="icon" href="{{ asset('front/images/du/du_logo.png') }}" type="image/x-icon"> <!-- Favicon-->
     @endif
-    <link rel="icon" href="images/Layer_3.png" type="image/x-icon"> <!-- Favicon-->
+
     <link rel="stylesheet" href="{{ asset('front/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
     @if(request()->get('op') == $zain_kuwait)
