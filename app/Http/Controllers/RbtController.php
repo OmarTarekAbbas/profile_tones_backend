@@ -39,20 +39,20 @@ class RbtController extends Controller
     {
         // dd($request);
         if(isset($request->content_id)){
-            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country')
+            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country' , 'rbt_codes.id as rbt_codes_id')
             ->join('operators', 'operators.id', '=', 'rbt_codes.operator_id')
             ->join('countries', 'countries.id', '=', 'operators.country_id')
             ->join('contents', 'contents.id', '=', 'rbt_codes.content_id')
             ->where('rbt_codes.content_id', $request->content_id)
             ->get();
         }else{
-            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country')
+            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country' , 'rbt_codes.id as rbt_codes_id')
             ->join('operators', 'operators.id', '=', 'rbt_codes.operator_id')
             ->join('countries', 'countries.id', '=', 'operators.country_id')
             ->join('contents', 'contents.id', '=', 'rbt_codes.content_id')
             ->get();
         }
-
+// dd($contents);
 
             return \DataTables::of($contents)
                 ->addColumn('index', function(RbtCode $content) {
