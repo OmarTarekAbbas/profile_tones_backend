@@ -26,5 +26,6 @@ class AddSettingValue extends Migration
     public function down()
     {
         //
+
     }
 }
