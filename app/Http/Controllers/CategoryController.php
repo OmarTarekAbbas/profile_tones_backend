@@ -14,7 +14,7 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-      $this->get_privilege();
+    $this->get_privilege();
     }
 
     /**
