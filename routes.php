@@ -139,6 +139,7 @@ Route::get('operator/{id}/edit','OperatorController@edit');
 Route::patch('operator/{id}','OperatorController@update');
 Route::get('operator/{id}/delete','OperatorController@destroy');
 Route::get('users/{id}/delete','UserController@destroy');
+
 Route::get('migrate_tables','DashboardController@migrate_tables');
 
 
