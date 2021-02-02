@@ -27,5 +27,6 @@ class AddSettingValue extends Migration
     {
         //
 
+
     }
 }
