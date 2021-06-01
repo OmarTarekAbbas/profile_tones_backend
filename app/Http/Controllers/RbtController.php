@@ -39,20 +39,21 @@ class RbtController extends Controller
     {
         // dd($request);
         if(isset($request->content_id)){
-            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country')
+            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country','rbt_codes.id as id')
             ->join('operators', 'operators.id', '=', 'rbt_codes.operator_id')
             ->join('countries', 'countries.id', '=', 'operators.country_id')
             ->join('contents', 'contents.id', '=', 'rbt_codes.content_id')
             ->where('rbt_codes.content_id', $request->content_id)
             ->get();
         }else{
-            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country')
+            $contents = RbtCode::select('*','rbt_codes.image as image_rbt','countries.title as title_country','rbt_codes.id as id')
             ->join('operators', 'operators.id', '=', 'rbt_codes.operator_id')
             ->join('countries', 'countries.id', '=', 'operators.country_id')
             ->join('contents', 'contents.id', '=', 'rbt_codes.content_id')
             ->get();
         }
 
+        // dd($contents);
 
             return \DataTables::of($contents)
                 ->addColumn('index', function(RbtCode $content) {
@@ -107,7 +108,7 @@ class RbtController extends Controller
             'rbt_code' => 'required',
             'content_id' => 'required',
             'operator_id' => 'required',
-            'image' => 'required'
+            // 'image' => 'required'
         ]);
         //$content  = Content::create($request->all());
         $content = Content::findOrFail($request->content_id);
@@ -125,7 +126,7 @@ class RbtController extends Controller
         //         }
         //     }
         // }
-
+        $image = null;
         foreach ($request->operator_id as  $key => $operator_id) {
             if (!empty($request->image[$key])) {
                 if ($request->image[$key]->isValid()) {
